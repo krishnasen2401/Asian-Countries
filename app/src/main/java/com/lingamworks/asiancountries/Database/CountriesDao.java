@@ -31,6 +31,7 @@ public abstract class CountriesDao {
         insertLanguage(value);
         }
     }
+
     @Query("select * from Country")
     public abstract List<newCountry> countryList();
 

@@ -7,8 +7,10 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.SimpleItemAnimator;
 
+import android.net.Uri;
 import android.os.Bundle;
 
+import com.github.twocoffeesoneteam.glidetovectoryou.GlideToVectorYou;
 import com.lingamworks.asiancountries.Adapters.boundaryListAdapter;
 import com.lingamworks.asiancountries.Adapters.languageListAdapter;
 import com.lingamworks.asiancountries.Database.database;
@@ -65,5 +67,11 @@ public class CountryDetailsActivity extends AppCompatActivity {
         languageListAdapter adapter2=new languageListAdapter(CountryDetailsActivity.this,country.getLanguages());
         binding.lvLanguageList.setAdapter(adapter2);
         binding.lvBoundarycList.setAdapter(adapter1);
+        GlideToVectorYou
+                .init()
+                .with(this)
+                .load(Uri.parse(country.getCountry().getFlag()), binding.imgVCountry);
+
+
     }
 }
