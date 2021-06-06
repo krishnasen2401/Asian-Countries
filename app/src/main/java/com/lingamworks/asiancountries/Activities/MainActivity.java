@@ -108,9 +108,11 @@ countryListAdapter adapter;
             @Override
             public void run(){
                 db.clearAllTables();
+                List<newCountry> mlist=db.CountriesDato().countryList();
                 runOnUiThread(new Runnable() {
                     public void run() {
                         Toast.makeText(MainActivity.this,"Deleted Data",Toast.LENGTH_LONG).show();
+                        adapter.setTasks(mlist);
                     }
                 });
 
